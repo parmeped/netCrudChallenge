@@ -22,6 +22,12 @@ Given that the worst part of the API was testing, an emphasis should be made on 
     Docker.
     SwaggerUI.
 
+# Assumptions
+Companies have streetName and streetNumber.
+A City has companies & Contacts. 
+A state has Cities.
+
+
 # Deliverables Checklist
 - Create contact record
 - Retrieve contact record

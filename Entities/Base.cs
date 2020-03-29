@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 
-namespace Repository.Models
+namespace Entities
 {
     public class Base
     {

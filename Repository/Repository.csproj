@@ -15,15 +15,25 @@
     <Compile Remove="Migrations\20200328230039_Initial.Designer.cs" />
     <Compile Remove="Migrations\20200328230335_Initial.cs" />
     <Compile Remove="Migrations\20200328230335_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200329152242_Initial.cs" />
+    <Compile Remove="Migrations\20200329152242_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200329153110_Update1.cs" />
+    <Compile Remove="Migrations\20200329153110_Update1.Designer.cs" />
+    <Compile Remove="Migrations\20200329153319_Update1.cs" />
+    <Compile Remove="Migrations\20200329153319_Update1.Designer.cs" />
+    <Compile Remove="Migrations\20200329153628_Initial.cs" />
+    <Compile Remove="Migrations\20200329153628_Initial.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.3" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.3" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
+    <ProjectReference Include="..\Contracts\Contracts.csproj" />
+    <ProjectReference Include="..\Entities\Entities.csproj" />
   </ItemGroup>
 
 </Project>

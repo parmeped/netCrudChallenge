@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Repository.Models
+namespace Entities.Models
 {
     public class Phone : Base
     {
@@ -10,7 +10,7 @@ namespace Repository.Models
 
         public string Number { get; set; }
 
-        public ushort PhoneTypeID { get; set; }
+        public uint PhoneTypeID { get; set; }
 
         public virtual PhoneType PhoneType { get; set; }
 

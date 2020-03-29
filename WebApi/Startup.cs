@@ -1,17 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using AutoMapper;
+using Contracts.Contact;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Repository;
+using Services.Contact;
+using Services.Mapper;
 
 namespace WebApi
 {
@@ -28,9 +25,26 @@ namespace WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddEntityFrameworkNpgsql().AddDbContext<ContactContext>(opt =>
-                opt.UseNpgsql(Configuration.GetConnectionString("PostgreConnection")));            
 
+            // Repository Config
+            services.AddEntityFrameworkNpgsql().AddDbContext<ContactContext>(opt =>
+                opt.UseNpgsql(Configuration.GetConnectionString("PostgreConnection")));
+            
+            services.AddDbContext<ContactContext>(opt =>
+                opt.UseNpgsql(Configuration.GetConnectionString("PostgreConnection")));
+
+            // Auto Mapper Configurations
+            services.AddAutoMapper(typeof(Startup));
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new ContactProfile());
+            });
+
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
+            // ContactService
+            services.Add(new ServiceDescriptor(typeof(IContactService), new ContactService(mapper, new ContactContext())));            
         }        
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,9 +54,10 @@ namespace WebApi
             {
                 app.UseDeveloperExceptionPage();
 
-                using var context = new ContactContext();
-                context.Database.EnsureDeleted();
-                context.Database.EnsureCreated();
+                // TODO: See this
+                //using var context = new ContactContext();
+                //context.Database.EnsureDeleted();
+                //context.Database.EnsureCreated();
             }
 
             app.UseHttpsRedirection();

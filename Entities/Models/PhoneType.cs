@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Repository.Models
+namespace Entities.Models
 {
     public class PhoneType : Base
     {
