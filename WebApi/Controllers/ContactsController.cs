@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Contracts.Dto.Responses;
 using Contracts.Dto.Requests;
 using Contracts.Contact;
+using System.Net;
 
 namespace WebApi.Controllers
 {
@@ -24,16 +25,11 @@ namespace WebApi.Controllers
 
         // GET: apiRoute/:id
         [HttpGet("{id}")]
-        public ActionResult<ContactDto> GetContact(uint id)
+        [ProducesResponseType(typeof(ContactDto), (int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        public async Task<IActionResult> GetContact(uint id)
         {
-            var contact = _service.GetContactById(id);
-
-            if (contact == null)
-            {
-                return NotFound();
-            }
-
-            return contact;
+            return null;
         }
 
         //// PATCH: api/Contacts/:id

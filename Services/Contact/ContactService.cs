@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Contracts.Repository;
 using AutoMapper;
 using Repository;
+using System.Threading.Tasks;
 
 namespace Services.Contact
 {
@@ -30,9 +31,9 @@ namespace Services.Contact
             throw new NotImplementedException();
         }
 
-        public ContactDto GetContactById(uint ID)
-        {   
-            var result = _repository.Cities.Find(ID);
+        public async Task<ContactDto> GetContactById(uint ID)
+        {
+            var result = await _repository.Cities.FindAsync(ID);
             var contact = _mapper.Map<ContactDto>(result);
             return contact;                       
         }

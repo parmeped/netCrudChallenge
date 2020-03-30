@@ -43,9 +43,8 @@ namespace WebApi
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
 
-            // ContactService
-            services.Add(new ServiceDescriptor(typeof(IContactService), new ContactService(mapper, new ContactContext())));            
-        }        
+            services.AddScoped<IContactService, ContactService>();
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

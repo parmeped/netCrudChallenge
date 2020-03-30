@@ -28,7 +28,9 @@ namespace Repository
             modelBuilder.Entity<Contact>();
             modelBuilder.Entity<Phone>();
             modelBuilder.Entity<PhoneType>();
-            modelBuilder.Entity<State>();            
+            modelBuilder.Entity<State>();
+
+            base.OnModelCreating(modelBuilder);
 
             //Data seed
             SeedDatabase(modelBuilder);
