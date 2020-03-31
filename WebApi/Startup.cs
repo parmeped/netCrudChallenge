@@ -1,5 +1,6 @@
 using AutoMapper;
 using Contracts.Contact;
+using Contracts.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -27,11 +28,12 @@ namespace WebApi
             services.AddControllers();
 
             // Repository Config
-            services.AddEntityFrameworkNpgsql().AddDbContext<ContactContext>(opt =>
-                opt.UseNpgsql(Configuration.GetConnectionString("PostgreConnection")));
+            //services.AddEntityFrameworkNpgsql().AddDbContext<ContactContext>(opt =>
+            //    opt.UseNpgsql(Configuration.GetConnectionString("PostgreConnection")));
             
             services.AddDbContext<ContactContext>(opt =>
                 opt.UseNpgsql(Configuration.GetConnectionString("PostgreConnection")));
+
 
             // Auto Mapper Configurations
             services.AddAutoMapper(typeof(Startup));
@@ -43,6 +45,7 @@ namespace WebApi
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
 
+            services.AddScoped<IRepository, ContactContext>();
             services.AddScoped<IContactService, ContactService>();
         }
 

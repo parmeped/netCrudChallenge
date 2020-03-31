@@ -4,6 +4,7 @@ using System.Text;
 using Microsoft.EntityFrameworkCore;
 using Entities.Models;
 using Contracts.Repository;
+using System.Threading.Tasks;
 
 namespace Repository
 {
@@ -34,6 +35,11 @@ namespace Repository
 
             //Data seed
             SeedDatabase(modelBuilder);
+        }
+
+        public async Task<int> SaveChangesAsync()
+        {
+            return await base.SaveChangesAsync();
         }
 
         private void SeedDatabase(ModelBuilder m)

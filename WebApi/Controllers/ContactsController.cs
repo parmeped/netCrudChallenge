@@ -25,23 +25,21 @@ namespace WebApi.Controllers
 
         // GET: apiRoute/:id
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(ContactDto), (int)HttpStatusCode.OK)]
-        [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        public async Task<IActionResult> GetContact(uint id)
+        public async Task<ContactDto> GetContact(uint id)
         {
-            return null;
+            return await _service.GetContactById(id);
         }
 
         //// PATCH: api/Contacts/:id
         //[HttpPut("{id}")]
         //public async Task<IActionResult> PutContact(uint id, UpdateContactDto updatedContact)
         //{
-            // TODO: would this be neccesary? We do already receive the ID. 
-            //if (id != updatedContact.ID)
-            //{
-            //    return BadRequest();
-            //}
-                        
+        // TODO: would this be neccesary? We do already receive the ID. 
+        //if (id != updatedContact.ID)
+        //{
+        //    return BadRequest();
+        //}
+
         //    try
         //    {
         //        await _service.SaveChangesAsync();
@@ -71,21 +69,13 @@ namespace WebApi.Controllers
         //    return CreatedAtAction("GetContact", new { id = contact.ID }, contact);
         //}
 
-        //// DELETE: api/Contacts/5
-        //[HttpDelete("{id}")]
-        //public async Task<ActionResult<Contact>> DeleteContact(uint id)
-        //{
-        //    var contact = await _service.Contacts.FindAsync(id);
-        //    if (contact == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    _service.Contacts.Remove(contact);
-        //    await _service.SaveChangesAsync();
-
-        //    return contact;
-        //}
+        // DELETE: api/Contacts/:id
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<bool>> DeleteContact(uint id)
+        {
+            // TODO: This works great but doesn't perform a soft delete
+            return await _service.DeleteContactById(id);
+        }
 
         //private bool ContactExists(uint id)
         //{

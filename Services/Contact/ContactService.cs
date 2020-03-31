@@ -5,8 +5,10 @@ using System;
 using System.Collections.Generic;
 using Contracts.Repository;
 using AutoMapper;
-using Repository;
 using System.Threading.Tasks;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using Entities.Models;
 
 namespace Services.Contact
 {
@@ -26,16 +28,42 @@ namespace Services.Contact
             throw new NotImplementedException();
         }
 
-        public bool DeleteContactById(uint ID)
+        public async Task<bool> DeleteContactById(uint ID)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var contact = await _repository.Contacts.FindAsync(ID);
+                _repository.Contacts.Remove(contact);
+                await _repository.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
+        // TODO: Work on exceptions.
         public async Task<ContactDto> GetContactById(uint ID)
         {
-            var result = await _repository.Cities.FindAsync(ID);
-            var contact = _mapper.Map<ContactDto>(result);
-            return contact;                       
+            try
+            {
+
+                // TODO: Fix this into a single query.
+                var contact = await _repository.Contacts.FindAsync(ID);
+                var company = await _repository.Companies.FindAsync(contact.CompanyID);
+                var city = await _repository.Cities.FindAsync(contact.CityID);
+                var state = await _repository.States.FindAsync(city.StateID);
+                var phones = await _repository.Phones.Where(p => p.ContactID == ID).ToListAsync();
+
+                var result = _mapper.Map<ContactDto>(contact);                
+                return result;                       
+
+            } 
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
 
         public List<ContactDto> GetContactsByLocation(string locationParam, uint locationID, ushort pageNumber, ushort pageLimit)

@@ -23,4 +23,3 @@ namespace Contracts.Dto.Responses
         public List<PhoneDto> Phones { get; set; }
     }
 }
-

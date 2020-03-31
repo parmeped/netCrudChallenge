@@ -11,7 +11,13 @@ namespace Services.Mapper
     {
         public ContactProfile()
         {
-            CreateMap<Mo.Contact, ContactDto>();
+            CreateMap<Mo.Contact, ContactDto>()
+                .ForMember(dest => dest.CityName, act => act.MapFrom(src => src.City.Name))
+                .ForMember(dest => dest.CompanyName, act => act.MapFrom(src => src.Company.Name))
+                .ForMember(dest => dest.StateName, act => act.MapFrom(src => src.City.State.Name))
+                .ForMember(dest => dest.StateID, act => act.MapFrom(src => src.City.State.ID));
+
+            CreateMap<Mo.Phone, PhoneDto>();
         }
     }
 }

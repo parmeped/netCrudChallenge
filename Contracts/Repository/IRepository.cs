@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Contracts.Repository
 {
@@ -14,5 +15,6 @@ namespace Contracts.Repository
         public DbSet<Mo.Phone> Phones { get; set; }
         public DbSet<Mo.PhoneType> PhoneTypes { get; set; }
         public DbSet<Mo.State> States { get; set; }
+        Task<int> SaveChangesAsync();
     }
 }

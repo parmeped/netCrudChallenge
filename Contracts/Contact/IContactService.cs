@@ -13,7 +13,7 @@ namespace Contracts.Contact
 
         Task<ContactDto> GetContactById(uint ID);
 
-        //public bool DeleteContactById(uint ID);
+        Task<bool> DeleteContactById(uint ID);
 
         //public ContactDto UpdateContactById(UpdateContactDto updateDto);
 
