@@ -20,7 +20,7 @@ namespace Contracts.Contact
 
         public Task<List<ContactDto>> GetContactsByMail(string mailParam, PaginationDto pagination);
 
-        public Task<List<ContactDto>> GetContactsByPhone(PaginationDto pagination, string prefix = "", string number = "");
+        public Task<List<ContactDto>> GetContactsByPhone(PhoneRequestDto phoneDto);
 
     }
 }

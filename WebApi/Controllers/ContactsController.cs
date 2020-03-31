@@ -61,9 +61,9 @@ namespace WebApi.Controllers
 
         // GET: apiRoute/byPhone/        
         [HttpGet("byPhone/")]
-        public async Task<List<ContactDto>> GetContactListByPhone([FromQuery]string prefix, [FromQuery]string number, [FromBody]PaginationDto paginationDto)
+        public async Task<List<ContactDto>> GetContactListByPhone(PhoneRequestDto phoneRequest)
         {
-            return await _service.GetContactsByPhone(paginationDto, prefix, number);
+            return await _service.GetContactsByPhone(phoneRequest);
         }
 
         // GET: apiRoute/byLocation/:searchParam/:id

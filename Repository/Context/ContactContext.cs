@@ -24,18 +24,12 @@ namespace Repository
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Entities
-            modelBuilder.Entity<City>()
-                .HasKey(x => x.ID);
-            modelBuilder.Entity<Company>()
-                .HasKey(x => x.ID);
-            modelBuilder.Entity<Contact>()
-                .HasKey(x => x.ID);
-            modelBuilder.Entity<Phone>()
-                .HasKey(x => x.ID);
-            modelBuilder.Entity<PhoneType>()
-                .HasKey(x => x.ID);
-            modelBuilder.Entity<State>()
-                .HasKey(x => x.ID);
+            modelBuilder.Entity<City>();
+            modelBuilder.Entity<Company>();
+            modelBuilder.Entity<Contact>();
+            modelBuilder.Entity<Phone>();
+            modelBuilder.Entity<PhoneType>();
+            modelBuilder.Entity<State>();
 
             base.OnModelCreating(modelBuilder);
 
@@ -62,7 +56,7 @@ namespace Repository
             while (i < 10)
             {
                 i++;
-                var city = new City { ID = (uint)i, Name = "City " + i, StateID = (uint)j, CreatedAt = creAt };
+                var city = new City { ID = i, Name = "City " + i, StateID = j, CreatedAt = creAt };                
                 m.Entity<City>().HasData(city);
                 if (i % 2 == 0)
                 {
@@ -75,7 +69,7 @@ namespace Repository
             while (i < 5) 
             {
                 i++;
-                var state = new State { ID = (uint)i, Name = "State " +  i, CreatedAt = creAt };
+                var state = new State { ID = i, Name = "State " +  i, CreatedAt = creAt };
                 m.Entity<State>().HasData(state);
             }
 
@@ -85,14 +79,14 @@ namespace Repository
             while (i < 10)
             {
                 i++;
-                var company = new Company { ID = (uint)i, Name = "Company " + i, CityID = (uint)i, StreetName = sName, StreetNumber = (ushort)rand.Next(1, 5000), CreatedAt = creAt };
+                var company = new Company { ID = i, Name = "Company " + i, CityID = i, StreetName = sName, StreetNumber = (ushort)rand.Next(1, 5000), CreatedAt = creAt };
 
                 m.Entity<Company>().HasData(company);
             }
 
             // Phone types
-            var type1 = new PhoneType { ID = (uint)1, Name = "work", CreatedAt = creAt };
-            var type2 = new PhoneType { ID = (uint)2, Name = "personal", CreatedAt = creAt };
+            var type1 = new PhoneType { ID = 1, Name = "work", CreatedAt = creAt };
+            var type2 = new PhoneType { ID = 2, Name = "personal", CreatedAt = creAt };
             m.Entity<PhoneType>().HasData(type1);
             m.Entity<PhoneType>().HasData(type2);
 
@@ -104,10 +98,10 @@ namespace Repository
                 i++;
                 var contact = new Contact
                 {
-                    ID           = (uint)i,
+                    ID           = i,
                     Name         = "Contact " + i,
-                    CityID       = (uint)j,
-                    CompanyID    = (uint)j,
+                    CityID       = j,
+                    CompanyID    = j,
                     StreetName   = sName,
                     StreetNumber = (ushort)rand.Next(1, 5000),
                     BirthDate    = randomBirthDate(rand),
@@ -127,7 +121,7 @@ namespace Repository
             while (i < 20)
             {
                 i++;
-                var phone = new Phone { ID = (uint)i, Prefix = 549.ToString(), Number = rand.Next(minPhone, maxPhone).ToString(), PhoneTypeID = 1, ContactID = (uint)i, CreatedAt = creAt };                
+                var phone = new Phone { ID = i, Prefix = 549.ToString(), Number = rand.Next(minPhone, maxPhone).ToString(), PhoneTypeID = 1, ContactID = i, CreatedAt = creAt };                
                 m.Entity<Phone>().HasData(phone);
             }            
             j = 0;
@@ -135,7 +129,7 @@ namespace Repository
             {
                 i++;
                 j++;
-                var phone = new Phone { ID = (uint)i, Prefix = 549.ToString(), Number = rand.Next(minPhone, maxPhone).ToString(), PhoneTypeID = 2, ContactID = (uint)j, CreatedAt = creAt };                
+                var phone = new Phone { ID = i, Prefix = 549.ToString(), Number = rand.Next(minPhone, maxPhone).ToString(), PhoneTypeID = 2, ContactID = j, CreatedAt = creAt };                
                 m.Entity<Phone>().HasData(phone);
             }
 
