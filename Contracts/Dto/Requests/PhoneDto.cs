@@ -2,20 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entities.Models
+namespace Contracts.Dto.Requests
 {
-    public class Phone : Base
+    public class PhoneDto
     {
-        public string Prefix { get; set; }
-
-        public string Number { get; set; }
-
-        public long PhoneTypeID { get; set; }
-
-        public virtual PhoneType PhoneType { get; set; }
-
+        public long ID { get; set; } 
         public long ContactID { get; set; }
-
-        public virtual Contact Contact { get; set; }
+        public string Prefix { get; set; }
+        public string Number { get; set; }
+        public long PhoneTypeID { get; set; }
     }
 }

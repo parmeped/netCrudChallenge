@@ -9,7 +9,7 @@ namespace Entities.Models
         public string Name { get; set; }
         public string StreetName { get; set; }
         public ushort StreetNumber { get; set; }
-        public uint CityID { get; set; }
+        public long CityID { get; set; }
         public virtual City City { get; set; }        
     }
 }

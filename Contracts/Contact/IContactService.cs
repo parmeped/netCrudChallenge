@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Contracts.Dto.Responses;
 using Contracts.Dto.Requests;
 using System.Threading.Tasks;
@@ -9,19 +8,19 @@ namespace Contracts.Contact
 {
     public interface IContactService
     {
-        //public ContactDto CreateContact(CreateContactDto contactDto);
+        public Task<ContactDto> CreateContact(CreateContactDto contactDto);
 
-        Task<ContactDto> GetContactById(uint ID);
+        Task<ContactDto> GetContactById(long ID);
 
-        Task<bool> DeleteContactById(uint ID);
+        Task<bool> DeleteContactById(long ID);
 
-        //public ContactDto UpdateContactById(UpdateContactDto updateDto);
+        public Task<ContactDto> UpdateContact(UpdateContactDto updateDto);
 
-        //public List<ContactDto> GetContactsByLocation(string locationParam, uint locationID, ushort pageNumber, ushort pageLimit);
+        public Task<List<ContactDto>> GetContactsByLocation(string locationParam, long locationID, PaginationDto pagination);
 
-        //public List<ContactDto> GetContactsByMail(string mailParam, ushort pageNumber, ushort pageLimit);
+        public Task<List<ContactDto>> GetContactsByMail(string mailParam, PaginationDto pagination);
 
-        //public List<ContactDto> GetContactsByPhone(string prefix, string number, ushort pageNumber, ushort pageLimit);
+        public Task<List<ContactDto>> GetContactsByPhone(PaginationDto pagination, string prefix = "", string number = "");
 
     }
 }

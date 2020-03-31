@@ -10,7 +10,7 @@ using Repository;
 namespace Repository.Migrations
 {
     [DbContext(typeof(ContactContext))]
-    [Migration("20200329154254_Initial")]
+    [Migration("20200331171548_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,8 @@ namespace Repository.Migrations
                 {
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("bigint")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp without time zone");
@@ -52,7 +53,7 @@ namespace Repository.Migrations
                         new
                         {
                             ID = 1L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "City 1",
                             StateID = 1L,
@@ -61,7 +62,7 @@ namespace Repository.Migrations
                         new
                         {
                             ID = 2L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "City 2",
                             StateID = 1L,
@@ -70,7 +71,7 @@ namespace Repository.Migrations
                         new
                         {
                             ID = 3L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "City 3",
                             StateID = 2L,
@@ -79,7 +80,7 @@ namespace Repository.Migrations
                         new
                         {
                             ID = 4L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "City 4",
                             StateID = 2L,
@@ -88,7 +89,7 @@ namespace Repository.Migrations
                         new
                         {
                             ID = 5L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "City 5",
                             StateID = 3L,
@@ -97,7 +98,7 @@ namespace Repository.Migrations
                         new
                         {
                             ID = 6L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "City 6",
                             StateID = 3L,
@@ -106,7 +107,7 @@ namespace Repository.Migrations
                         new
                         {
                             ID = 7L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "City 7",
                             StateID = 4L,
@@ -115,7 +116,7 @@ namespace Repository.Migrations
                         new
                         {
                             ID = 8L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "City 8",
                             StateID = 4L,
@@ -124,7 +125,7 @@ namespace Repository.Migrations
                         new
                         {
                             ID = 9L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "City 9",
                             StateID = 5L,
@@ -133,7 +134,7 @@ namespace Repository.Migrations
                         new
                         {
                             ID = 10L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "City 10",
                             StateID = 5L,
@@ -145,7 +146,8 @@ namespace Repository.Migrations
                 {
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("bigint")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<long>("CityID")
                         .HasColumnType("bigint");
@@ -179,110 +181,110 @@ namespace Repository.Migrations
                         {
                             ID = 1L,
                             CityID = 1L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Company 1",
                             StreetName = "Street Name",
-                            StreetNumber = 656,
+                            StreetNumber = 667,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 2L,
                             CityID = 2L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Company 2",
                             StreetName = "Street Name",
-                            StreetNumber = 2420,
+                            StreetNumber = 3659,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 3L,
                             CityID = 3L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Company 3",
                             StreetName = "Street Name",
-                            StreetNumber = 174,
+                            StreetNumber = 1675,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 4L,
                             CityID = 4L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Company 4",
                             StreetName = "Street Name",
-                            StreetNumber = 918,
+                            StreetNumber = 4454,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 5L,
                             CityID = 5L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Company 5",
                             StreetName = "Street Name",
-                            StreetNumber = 1015,
+                            StreetNumber = 40,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 6L,
                             CityID = 6L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Company 6",
                             StreetName = "Street Name",
-                            StreetNumber = 2273,
+                            StreetNumber = 1235,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 7L,
                             CityID = 7L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Company 7",
                             StreetName = "Street Name",
-                            StreetNumber = 3656,
+                            StreetNumber = 687,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 8L,
                             CityID = 8L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Company 8",
                             StreetName = "Street Name",
-                            StreetNumber = 1765,
+                            StreetNumber = 2850,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 9L,
                             CityID = 9L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Company 9",
                             StreetName = "Street Name",
-                            StreetNumber = 2762,
+                            StreetNumber = 1554,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 10L,
                             CityID = 10L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Company 10",
                             StreetName = "Street Name",
-                            StreetNumber = 1861,
+                            StreetNumber = 4053,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
@@ -291,7 +293,8 @@ namespace Repository.Migrations
                 {
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("bigint")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("timestamp without time zone");
@@ -338,301 +341,301 @@ namespace Repository.Migrations
                         new
                         {
                             ID = 1L,
-                            BirthDate = new DateTime(1992, 12, 16, 12, 42, 54, 278, DateTimeKind.Local).AddTicks(9036),
+                            BirthDate = new DateTime(1973, 10, 19, 14, 15, 47, 494, DateTimeKind.Local).AddTicks(6126),
                             CityID = 1L,
                             CompanyID = 1L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ContactEmail1@mail.com",
                             Name = "Contact 1",
                             ProfileImage = "ImageUrl",
                             StreetName = "Street Name",
-                            StreetNumber = 2317,
+                            StreetNumber = 4725,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 2L,
-                            BirthDate = new DateTime(1931, 2, 20, 12, 42, 54, 279, DateTimeKind.Local).AddTicks(1289),
+                            BirthDate = new DateTime(1976, 9, 11, 14, 15, 47, 495, DateTimeKind.Local).AddTicks(629),
                             CityID = 1L,
                             CompanyID = 1L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ContactEmail2@mail.com",
                             Name = "Contact 2",
                             ProfileImage = "ImageUrl",
                             StreetName = "Street Name",
-                            StreetNumber = 1453,
+                            StreetNumber = 2387,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 3L,
-                            BirthDate = new DateTime(1914, 9, 3, 12, 42, 54, 279, DateTimeKind.Local).AddTicks(1393),
+                            BirthDate = new DateTime(2000, 3, 31, 14, 15, 47, 495, DateTimeKind.Local).AddTicks(828),
                             CityID = 2L,
                             CompanyID = 2L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ContactEmail3@mail.com",
                             Name = "Contact 3",
                             ProfileImage = "ImageUrl",
                             StreetName = "Street Name",
-                            StreetNumber = 1211,
+                            StreetNumber = 3345,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 4L,
-                            BirthDate = new DateTime(1927, 11, 7, 12, 42, 54, 279, DateTimeKind.Local).AddTicks(1429),
+                            BirthDate = new DateTime(1938, 6, 20, 14, 15, 47, 495, DateTimeKind.Local).AddTicks(902),
                             CityID = 2L,
                             CompanyID = 2L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ContactEmail4@mail.com",
                             Name = "Contact 4",
                             ProfileImage = "ImageUrl",
                             StreetName = "Street Name",
-                            StreetNumber = 2465,
+                            StreetNumber = 864,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 5L,
-                            BirthDate = new DateTime(1925, 6, 30, 12, 42, 54, 279, DateTimeKind.Local).AddTicks(1458),
+                            BirthDate = new DateTime(1971, 12, 20, 14, 15, 47, 495, DateTimeKind.Local).AddTicks(971),
                             CityID = 3L,
                             CompanyID = 3L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ContactEmail5@mail.com",
                             Name = "Contact 5",
                             ProfileImage = "ImageUrl",
                             StreetName = "Street Name",
-                            StreetNumber = 287,
+                            StreetNumber = 1458,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 6L,
-                            BirthDate = new DateTime(1948, 12, 21, 12, 42, 54, 279, DateTimeKind.Local).AddTicks(1490),
+                            BirthDate = new DateTime(1960, 1, 13, 14, 15, 47, 495, DateTimeKind.Local).AddTicks(1049),
                             CityID = 3L,
                             CompanyID = 3L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ContactEmail6@mail.com",
                             Name = "Contact 6",
                             ProfileImage = "ImageUrl",
                             StreetName = "Street Name",
-                            StreetNumber = 3698,
+                            StreetNumber = 3896,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 7L,
-                            BirthDate = new DateTime(1956, 7, 13, 12, 42, 54, 279, DateTimeKind.Local).AddTicks(1518),
+                            BirthDate = new DateTime(1994, 4, 16, 14, 15, 47, 495, DateTimeKind.Local).AddTicks(1118),
                             CityID = 4L,
                             CompanyID = 4L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ContactEmail7@mail.com",
                             Name = "Contact 7",
                             ProfileImage = "ImageUrl",
                             StreetName = "Street Name",
-                            StreetNumber = 298,
+                            StreetNumber = 1254,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 8L,
-                            BirthDate = new DateTime(1932, 3, 27, 12, 42, 54, 279, DateTimeKind.Local).AddTicks(1545),
+                            BirthDate = new DateTime(1983, 9, 26, 14, 15, 47, 495, DateTimeKind.Local).AddTicks(1181),
                             CityID = 4L,
                             CompanyID = 4L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ContactEmail8@mail.com",
                             Name = "Contact 8",
                             ProfileImage = "ImageUrl",
                             StreetName = "Street Name",
-                            StreetNumber = 3549,
+                            StreetNumber = 71,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 9L,
-                            BirthDate = new DateTime(1999, 2, 17, 12, 42, 54, 279, DateTimeKind.Local).AddTicks(1572),
+                            BirthDate = new DateTime(1934, 8, 23, 14, 15, 47, 495, DateTimeKind.Local).AddTicks(1249),
                             CityID = 5L,
                             CompanyID = 5L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ContactEmail9@mail.com",
                             Name = "Contact 9",
                             ProfileImage = "ImageUrl",
                             StreetName = "Street Name",
-                            StreetNumber = 4815,
+                            StreetNumber = 576,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 10L,
-                            BirthDate = new DateTime(1960, 5, 13, 12, 42, 54, 279, DateTimeKind.Local).AddTicks(1656),
+                            BirthDate = new DateTime(1930, 3, 18, 14, 15, 47, 495, DateTimeKind.Local).AddTicks(1317),
                             CityID = 5L,
                             CompanyID = 5L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ContactEmail10@mail.com",
                             Name = "Contact 10",
                             ProfileImage = "ImageUrl",
                             StreetName = "Street Name",
-                            StreetNumber = 2127,
+                            StreetNumber = 4335,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 11L,
-                            BirthDate = new DateTime(1940, 6, 27, 12, 42, 54, 279, DateTimeKind.Local).AddTicks(1687),
+                            BirthDate = new DateTime(1965, 8, 21, 14, 15, 47, 495, DateTimeKind.Local).AddTicks(1385),
                             CityID = 6L,
                             CompanyID = 6L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ContactEmail11@mail.com",
                             Name = "Contact 11",
                             ProfileImage = "ImageUrl",
                             StreetName = "Street Name",
-                            StreetNumber = 4071,
+                            StreetNumber = 1273,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 12L,
-                            BirthDate = new DateTime(1933, 5, 13, 12, 42, 54, 279, DateTimeKind.Local).AddTicks(1715),
+                            BirthDate = new DateTime(1945, 11, 17, 14, 15, 47, 495, DateTimeKind.Local).AddTicks(1468),
                             CityID = 6L,
                             CompanyID = 6L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ContactEmail12@mail.com",
                             Name = "Contact 12",
                             ProfileImage = "ImageUrl",
                             StreetName = "Street Name",
-                            StreetNumber = 228,
+                            StreetNumber = 3199,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 13L,
-                            BirthDate = new DateTime(1923, 3, 3, 12, 42, 54, 279, DateTimeKind.Local).AddTicks(1742),
+                            BirthDate = new DateTime(1970, 8, 27, 14, 15, 47, 495, DateTimeKind.Local).AddTicks(1626),
                             CityID = 7L,
                             CompanyID = 7L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ContactEmail13@mail.com",
                             Name = "Contact 13",
                             ProfileImage = "ImageUrl",
                             StreetName = "Street Name",
-                            StreetNumber = 697,
+                            StreetNumber = 534,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 14L,
-                            BirthDate = new DateTime(1925, 4, 25, 12, 42, 54, 279, DateTimeKind.Local).AddTicks(1769),
+                            BirthDate = new DateTime(1971, 1, 2, 14, 15, 47, 495, DateTimeKind.Local).AddTicks(1718),
                             CityID = 7L,
                             CompanyID = 7L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ContactEmail14@mail.com",
                             Name = "Contact 14",
                             ProfileImage = "ImageUrl",
                             StreetName = "Street Name",
-                            StreetNumber = 4904,
+                            StreetNumber = 4553,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 15L,
-                            BirthDate = new DateTime(2000, 1, 14, 12, 42, 54, 279, DateTimeKind.Local).AddTicks(1796),
+                            BirthDate = new DateTime(1963, 10, 2, 14, 15, 47, 495, DateTimeKind.Local).AddTicks(1774),
                             CityID = 8L,
                             CompanyID = 8L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ContactEmail15@mail.com",
                             Name = "Contact 15",
                             ProfileImage = "ImageUrl",
                             StreetName = "Street Name",
-                            StreetNumber = 1797,
+                            StreetNumber = 284,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 16L,
-                            BirthDate = new DateTime(1972, 2, 13, 12, 42, 54, 279, DateTimeKind.Local).AddTicks(1823),
+                            BirthDate = new DateTime(1969, 4, 22, 14, 15, 47, 495, DateTimeKind.Local).AddTicks(1856),
                             CityID = 8L,
                             CompanyID = 8L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ContactEmail16@mail.com",
                             Name = "Contact 16",
                             ProfileImage = "ImageUrl",
                             StreetName = "Street Name",
-                            StreetNumber = 2357,
+                            StreetNumber = 4199,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 17L,
-                            BirthDate = new DateTime(1965, 4, 8, 12, 42, 54, 279, DateTimeKind.Local).AddTicks(1850),
+                            BirthDate = new DateTime(1991, 2, 9, 14, 15, 47, 495, DateTimeKind.Local).AddTicks(1916),
                             CityID = 9L,
                             CompanyID = 9L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ContactEmail17@mail.com",
                             Name = "Contact 17",
                             ProfileImage = "ImageUrl",
                             StreetName = "Street Name",
-                            StreetNumber = 1626,
+                            StreetNumber = 2086,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 18L,
-                            BirthDate = new DateTime(1940, 2, 18, 12, 42, 54, 279, DateTimeKind.Local).AddTicks(1879),
+                            BirthDate = new DateTime(2000, 9, 18, 14, 15, 47, 495, DateTimeKind.Local).AddTicks(1986),
                             CityID = 9L,
                             CompanyID = 9L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ContactEmail18@mail.com",
                             Name = "Contact 18",
                             ProfileImage = "ImageUrl",
                             StreetName = "Street Name",
-                            StreetNumber = 1413,
+                            StreetNumber = 4803,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 19L,
-                            BirthDate = new DateTime(1982, 6, 21, 12, 42, 54, 279, DateTimeKind.Local).AddTicks(1906),
+                            BirthDate = new DateTime(1928, 1, 6, 14, 15, 47, 495, DateTimeKind.Local).AddTicks(2051),
                             CityID = 10L,
                             CompanyID = 10L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ContactEmail19@mail.com",
                             Name = "Contact 19",
                             ProfileImage = "ImageUrl",
                             StreetName = "Street Name",
-                            StreetNumber = 657,
+                            StreetNumber = 709,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 20L,
-                            BirthDate = new DateTime(1936, 12, 24, 12, 42, 54, 279, DateTimeKind.Local).AddTicks(1932),
+                            BirthDate = new DateTime(1981, 8, 6, 14, 15, 47, 495, DateTimeKind.Local).AddTicks(2117),
                             CityID = 10L,
                             CompanyID = 10L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ContactEmail20@mail.com",
                             Name = "Contact 20",
                             ProfileImage = "ImageUrl",
                             StreetName = "Street Name",
-                            StreetNumber = 125,
+                            StreetNumber = 1261,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
@@ -641,7 +644,8 @@ namespace Repository.Migrations
                 {
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("bigint")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<long>("ContactID")
                         .HasColumnType("bigint");
@@ -677,9 +681,9 @@ namespace Repository.Migrations
                         {
                             ID = 1L,
                             ContactID = 1L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "13734999",
+                            Number = "13082308",
                             PhoneTypeID = 1L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -688,9 +692,9 @@ namespace Repository.Migrations
                         {
                             ID = 2L,
                             ContactID = 2L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "79097884",
+                            Number = "45006772",
                             PhoneTypeID = 1L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -699,9 +703,9 @@ namespace Repository.Migrations
                         {
                             ID = 3L,
                             ContactID = 3L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "96494823",
+                            Number = "87915621",
                             PhoneTypeID = 1L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -710,9 +714,9 @@ namespace Repository.Migrations
                         {
                             ID = 4L,
                             ContactID = 4L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "56596996",
+                            Number = "21918660",
                             PhoneTypeID = 1L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -721,9 +725,9 @@ namespace Repository.Migrations
                         {
                             ID = 5L,
                             ContactID = 5L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "20905987",
+                            Number = "43800520",
                             PhoneTypeID = 1L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -732,9 +736,9 @@ namespace Repository.Migrations
                         {
                             ID = 6L,
                             ContactID = 6L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "58248277",
+                            Number = "68697270",
                             PhoneTypeID = 1L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -743,9 +747,9 @@ namespace Repository.Migrations
                         {
                             ID = 7L,
                             ContactID = 7L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "48832024",
+                            Number = "53883108",
                             PhoneTypeID = 1L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -754,9 +758,9 @@ namespace Repository.Migrations
                         {
                             ID = 8L,
                             ContactID = 8L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "56680530",
+                            Number = "29505464",
                             PhoneTypeID = 1L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -765,9 +769,9 @@ namespace Repository.Migrations
                         {
                             ID = 9L,
                             ContactID = 9L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "53217546",
+                            Number = "89049982",
                             PhoneTypeID = 1L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -776,9 +780,9 @@ namespace Repository.Migrations
                         {
                             ID = 10L,
                             ContactID = 10L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "49100529",
+                            Number = "79525416",
                             PhoneTypeID = 1L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -787,9 +791,9 @@ namespace Repository.Migrations
                         {
                             ID = 11L,
                             ContactID = 11L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "54790487",
+                            Number = "22838497",
                             PhoneTypeID = 1L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -798,9 +802,9 @@ namespace Repository.Migrations
                         {
                             ID = 12L,
                             ContactID = 12L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "69226462",
+                            Number = "45487436",
                             PhoneTypeID = 1L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -809,9 +813,9 @@ namespace Repository.Migrations
                         {
                             ID = 13L,
                             ContactID = 13L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "93573875",
+                            Number = "73596150",
                             PhoneTypeID = 1L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -820,9 +824,9 @@ namespace Repository.Migrations
                         {
                             ID = 14L,
                             ContactID = 14L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "17369239",
+                            Number = "56806799",
                             PhoneTypeID = 1L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -831,9 +835,9 @@ namespace Repository.Migrations
                         {
                             ID = 15L,
                             ContactID = 15L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "60698586",
+                            Number = "60544866",
                             PhoneTypeID = 1L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -842,9 +846,9 @@ namespace Repository.Migrations
                         {
                             ID = 16L,
                             ContactID = 16L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "79901067",
+                            Number = "57155732",
                             PhoneTypeID = 1L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -853,9 +857,9 @@ namespace Repository.Migrations
                         {
                             ID = 17L,
                             ContactID = 17L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "19684141",
+                            Number = "73517982",
                             PhoneTypeID = 1L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -864,9 +868,9 @@ namespace Repository.Migrations
                         {
                             ID = 18L,
                             ContactID = 18L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "57936918",
+                            Number = "86143261",
                             PhoneTypeID = 1L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -875,9 +879,9 @@ namespace Repository.Migrations
                         {
                             ID = 19L,
                             ContactID = 19L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "68676005",
+                            Number = "29327710",
                             PhoneTypeID = 1L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -886,9 +890,9 @@ namespace Repository.Migrations
                         {
                             ID = 20L,
                             ContactID = 20L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "44173582",
+                            Number = "37268810",
                             PhoneTypeID = 1L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -897,9 +901,9 @@ namespace Repository.Migrations
                         {
                             ID = 21L,
                             ContactID = 1L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "98047322",
+                            Number = "24914982",
                             PhoneTypeID = 2L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -908,9 +912,9 @@ namespace Repository.Migrations
                         {
                             ID = 22L,
                             ContactID = 2L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "68472666",
+                            Number = "82379261",
                             PhoneTypeID = 2L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -919,9 +923,9 @@ namespace Repository.Migrations
                         {
                             ID = 23L,
                             ContactID = 3L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "52178564",
+                            Number = "69237232",
                             PhoneTypeID = 2L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -930,9 +934,9 @@ namespace Repository.Migrations
                         {
                             ID = 24L,
                             ContactID = 4L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "99050265",
+                            Number = "86203476",
                             PhoneTypeID = 2L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -941,9 +945,9 @@ namespace Repository.Migrations
                         {
                             ID = 25L,
                             ContactID = 5L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "44409188",
+                            Number = "57437936",
                             PhoneTypeID = 2L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -952,9 +956,9 @@ namespace Repository.Migrations
                         {
                             ID = 26L,
                             ContactID = 6L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "44905766",
+                            Number = "45813684",
                             PhoneTypeID = 2L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -963,9 +967,9 @@ namespace Repository.Migrations
                         {
                             ID = 27L,
                             ContactID = 7L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "35613259",
+                            Number = "17181636",
                             PhoneTypeID = 2L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -974,9 +978,9 @@ namespace Repository.Migrations
                         {
                             ID = 28L,
                             ContactID = 8L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "66995080",
+                            Number = "19066743",
                             PhoneTypeID = 2L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -985,9 +989,9 @@ namespace Repository.Migrations
                         {
                             ID = 29L,
                             ContactID = 9L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "32389566",
+                            Number = "25984454",
                             PhoneTypeID = 2L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -996,9 +1000,9 @@ namespace Repository.Migrations
                         {
                             ID = 30L,
                             ContactID = 10L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "12598548",
+                            Number = "95826519",
                             PhoneTypeID = 2L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1007,9 +1011,9 @@ namespace Repository.Migrations
                         {
                             ID = 31L,
                             ContactID = 11L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "68385440",
+                            Number = "19678837",
                             PhoneTypeID = 2L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1018,9 +1022,9 @@ namespace Repository.Migrations
                         {
                             ID = 32L,
                             ContactID = 12L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "74386497",
+                            Number = "37371293",
                             PhoneTypeID = 2L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1029,9 +1033,9 @@ namespace Repository.Migrations
                         {
                             ID = 33L,
                             ContactID = 13L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "15776042",
+                            Number = "55408796",
                             PhoneTypeID = 2L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1040,9 +1044,9 @@ namespace Repository.Migrations
                         {
                             ID = 34L,
                             ContactID = 14L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "73264909",
+                            Number = "65031818",
                             PhoneTypeID = 2L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1051,9 +1055,9 @@ namespace Repository.Migrations
                         {
                             ID = 35L,
                             ContactID = 15L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "51334055",
+                            Number = "79963571",
                             PhoneTypeID = 2L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1062,9 +1066,9 @@ namespace Repository.Migrations
                         {
                             ID = 36L,
                             ContactID = 16L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "15499190",
+                            Number = "88737029",
                             PhoneTypeID = 2L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1073,9 +1077,9 @@ namespace Repository.Migrations
                         {
                             ID = 37L,
                             ContactID = 17L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "75899170",
+                            Number = "61155058",
                             PhoneTypeID = 2L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1084,9 +1088,9 @@ namespace Repository.Migrations
                         {
                             ID = 38L,
                             ContactID = 18L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "58551422",
+                            Number = "57174704",
                             PhoneTypeID = 2L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1095,9 +1099,9 @@ namespace Repository.Migrations
                         {
                             ID = 39L,
                             ContactID = 19L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "69207382",
+                            Number = "34710001",
                             PhoneTypeID = 2L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1106,9 +1110,9 @@ namespace Repository.Migrations
                         {
                             ID = 40L,
                             ContactID = 20L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Number = "65255083",
+                            Number = "51898963",
                             PhoneTypeID = 2L,
                             Prefix = "549",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1119,7 +1123,8 @@ namespace Repository.Migrations
                 {
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("bigint")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp without time zone");
@@ -1141,7 +1146,7 @@ namespace Repository.Migrations
                         new
                         {
                             ID = 1L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "work",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1149,7 +1154,7 @@ namespace Repository.Migrations
                         new
                         {
                             ID = 2L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "personal",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1160,7 +1165,8 @@ namespace Repository.Migrations
                 {
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("bigint")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp without time zone");
@@ -1182,7 +1188,7 @@ namespace Repository.Migrations
                         new
                         {
                             ID = 1L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "State 1",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1190,7 +1196,7 @@ namespace Repository.Migrations
                         new
                         {
                             ID = 2L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "State 2",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1198,7 +1204,7 @@ namespace Repository.Migrations
                         new
                         {
                             ID = 3L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "State 3",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1206,7 +1212,7 @@ namespace Repository.Migrations
                         new
                         {
                             ID = 4L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "State 4",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -1214,7 +1220,7 @@ namespace Repository.Migrations
                         new
                         {
                             ID = 5L,
-                            CreatedAt = new DateTime(2020, 3, 29, 12, 42, 54, 274, DateTimeKind.Local).AddTicks(5067),
+                            CreatedAt = new DateTime(2020, 3, 31, 14, 15, 47, 487, DateTimeKind.Local).AddTicks(9526),
                             DeletedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "State 5",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)

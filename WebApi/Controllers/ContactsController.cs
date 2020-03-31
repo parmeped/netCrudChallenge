@@ -30,44 +30,19 @@ namespace WebApi.Controllers
             return await _service.GetContactById(id);
         }
 
-        //// PATCH: api/Contacts/:id
-        //[HttpPut("{id}")]
-        //public async Task<IActionResult> PutContact(uint id, UpdateContactDto updatedContact)
-        //{
-        // TODO: would this be neccesary? We do already receive the ID. 
-        //if (id != updatedContact.ID)
-        //{
-        //    return BadRequest();
-        //}
+        // PATCH: api/Contacts/
+        [HttpPatch()]
+        public async Task<ActionResult<ContactDto>> PatchContact([FromBody]UpdateContactDto updatedContact)
+        {
+            return await _service.UpdateContact(updatedContact);
+        }
 
-        //    try
-        //    {
-        //        await _service.SaveChangesAsync();
-        //    }
-        //    catch (DbUpdateConcurrencyException)
-        //    {
-        //        if (!ContactExists(id))
-        //        {
-        //            return NotFound();
-        //        }
-        //        else
-        //        {
-        //            throw;
-        //        }
-        //    }
-
-        //    return NoContent();
-        //}
-
-        //// POST: api/Contacts        
-        //[HttpPost]
-        //public async Task<ActionResult<Contact>> PostContact(Contact contact)
-        //{
-        //    _service.Contacts.Add(contact);
-        //    await _service.SaveChangesAsync();
-
-        //    return CreatedAtAction("GetContact", new { id = contact.ID }, contact);
-        //}
+        // POST: api/Contacts        
+        [HttpPost]
+        public async Task<ActionResult<ContactDto>> PostContact([FromBody]CreateContactDto contact)
+        {
+            return await _service.CreateContact(contact);
+        }
 
         // DELETE: api/Contacts/:id
         [HttpDelete("{id}")]
@@ -77,9 +52,25 @@ namespace WebApi.Controllers
             return await _service.DeleteContactById(id);
         }
 
-        //private bool ContactExists(uint id)
-        //{
-        //    return _service.Contacts.Any(e => e.ID == id);
-        //}
+        // GET: apiRoute/byMail/:mail
+        [HttpGet("byMail/{mail}")]
+        public async Task<List<ContactDto>> GetContactListByMail(string mail, [FromBody]PaginationDto paginationDto)
+        {
+            return await _service.GetContactsByMail(mail, paginationDto);
+        }
+
+        // GET: apiRoute/byPhone/        
+        [HttpGet("byPhone/")]
+        public async Task<List<ContactDto>> GetContactListByPhone([FromQuery]string prefix, [FromQuery]string number, [FromBody]PaginationDto paginationDto)
+        {
+            return await _service.GetContactsByPhone(paginationDto, prefix, number);
+        }
+
+        // GET: apiRoute/byLocation/:searchParam/:id
+        [HttpGet("byLocation/{searchParam}/{id}")]
+        public async Task<List<ContactDto>> GetContactListByLocation(string searchParam, uint id, [FromBody]PaginationDto paginationDto)
+        {
+            return await _service.GetContactsByLocation(searchParam, id, paginationDto);
+        }
     }
 }

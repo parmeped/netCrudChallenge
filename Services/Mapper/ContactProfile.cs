@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
+using Contracts.Dto.Requests;
 using Contracts.Dto.Responses;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Mo = Entities.Models;
 
 namespace Services.Mapper
@@ -17,7 +15,14 @@ namespace Services.Mapper
                 .ForMember(dest => dest.StateName, act => act.MapFrom(src => src.City.State.Name))
                 .ForMember(dest => dest.StateID, act => act.MapFrom(src => src.City.State.ID));
 
+            CreateMap<CreateContactDto, Mo.Contact>()
+                .ForMember(dest => dest.Phones, act => act.MapFrom(src => src.Phones));
+
             CreateMap<Mo.Phone, PhoneDto>();
+
+            CreateMap<ContactDto, Mo.Contact>();
+
+            CreateMap<PhoneDto, Mo.Phone>();
         }
     }
 }

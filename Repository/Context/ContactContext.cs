@@ -24,12 +24,18 @@ namespace Repository
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Entities
-            modelBuilder.Entity<City>();
-            modelBuilder.Entity<Company>();
-            modelBuilder.Entity<Contact>();
-            modelBuilder.Entity<Phone>();
-            modelBuilder.Entity<PhoneType>();
-            modelBuilder.Entity<State>();
+            modelBuilder.Entity<City>()
+                .HasKey(x => x.ID);
+            modelBuilder.Entity<Company>()
+                .HasKey(x => x.ID);
+            modelBuilder.Entity<Contact>()
+                .HasKey(x => x.ID);
+            modelBuilder.Entity<Phone>()
+                .HasKey(x => x.ID);
+            modelBuilder.Entity<PhoneType>()
+                .HasKey(x => x.ID);
+            modelBuilder.Entity<State>()
+                .HasKey(x => x.ID);
 
             base.OnModelCreating(modelBuilder);
 
