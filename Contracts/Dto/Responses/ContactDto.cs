@@ -1,8 +1,7 @@
 ﻿using Contracts.Dto.Requests;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Contracts.Dto.Responses
 {
@@ -10,6 +9,7 @@ namespace Contracts.Dto.Responses
     {
         public uint ID { get; set; }
         public string Name { get; set; }
+        public bool Active { get; set; }
         public uint CompanyID { get; set; }
         public string CompanyName { get; set; }
         public string ProfileImage { get; set; }
@@ -21,6 +21,8 @@ namespace Contracts.Dto.Responses
         public string StateName { get; set; }
         public uint CityID { get; set; }
         public string CityName { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public List<PhoneDto> Phones { get; set; }
     }
 }

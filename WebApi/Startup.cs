@@ -46,7 +46,7 @@ namespace WebApi
             services.AddSingleton(mapper);
 
             services.AddScoped<IRepository, ContactContext>();
-            services.AddScoped<IContactService, ContactService>();
+            services.AddScoped<IContactService, ContactService>();            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,12 +54,7 @@ namespace WebApi
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
-
-                // TODO: See this
-                //using var context = new ContactContext();
-                //context.Database.EnsureDeleted();
-                //context.Database.EnsureCreated();
+                app.UseDeveloperExceptionPage();         
             }
 
             app.UseHttpsRedirection();

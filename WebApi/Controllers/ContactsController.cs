@@ -10,6 +10,7 @@ using Contracts.Dto.Requests;
 using Contracts.Contact;
 using System.Net;
 
+
 namespace WebApi.Controllers
 {
     [Route("api/v1/contacts/")]
@@ -25,52 +26,98 @@ namespace WebApi.Controllers
 
         // GET: apiRoute/:id
         [HttpGet("{id}")]
-        public async Task<ContactDto> GetContact(uint id)
+        public async Task<IActionResult> GetContact(long id)
         {
-            return await _service.GetContactById(id);
+            if (ModelState.IsValid)
+            {
+                return buildResponse(await _service.GetContactById(id));
+            }
+            return null;
         }
 
         // PATCH: api/Contacts/
-        [HttpPatch()]
-        public async Task<ActionResult<ContactDto>> PatchContact([FromBody]UpdateContactDto updatedContact)
-        {
-            return await _service.UpdateContact(updatedContact);
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> PatchContact(long id, [FromBody]UpdateContactDto updatedContact)
+        {            
+            if (ModelState.IsValid)
+            {
+                return buildResponse(await _service.UpdateContact(id, updatedContact));
+            }
+            return null;
         }
 
         // POST: api/Contacts        
         [HttpPost]
-        public async Task<ActionResult<ContactDto>> PostContact([FromBody]CreateContactDto contact)
-        {
-            return await _service.CreateContact(contact);
+        public async Task<IActionResult> PostContact([FromBody]CreateContactDto contact)
+        {            
+            if (ModelState.IsValid)
+            {
+                return buildResponse(await _service.CreateContact(contact));
+            }
+            return null;
         }
 
         // DELETE: api/Contacts/:id
         [HttpDelete("{id}")]
-        public async Task<ActionResult<bool>> DeleteContact(uint id)
+        public async Task<ActionResult<bool>> DeleteContact(long id)
         {
-            // TODO: This works great but doesn't perform a soft delete
-            return await _service.DeleteContactById(id);
+            if (ModelState.IsValid)
+            {
+                return await _service.DeleteContactById(id);
+            }
+            return null;
         }
 
         // GET: apiRoute/byMail/:mail
         [HttpGet("byMail/{mail}")]
-        public async Task<List<ContactDto>> GetContactListByMail(string mail, [FromBody]PaginationDto paginationDto)
+        public async Task<IActionResult> GetContactListByMail(string mail, [FromBody]PaginationDto pagination)
         {
-            return await _service.GetContactsByMail(mail, paginationDto);
+            if (ModelState.IsValid)
+            {
+                return buildResponse(await _service.GetContactsByMail(mail, pagination));
+            }
+            return null;
         }
 
         // GET: apiRoute/byPhone/        
         [HttpGet("byPhone/")]
-        public async Task<List<ContactDto>> GetContactListByPhone(PhoneRequestDto phoneRequest)
+        public async Task<IActionResult> GetContactListByPhone(PhoneRequestDto phoneRequest)
         {
-            return await _service.GetContactsByPhone(phoneRequest);
+            if (ModelState.IsValid)
+            {
+                return buildResponse(await _service.GetContactsByPhone(phoneRequest));
+            }
+            return null;
         }
 
         // GET: apiRoute/byLocation/:searchParam/:id
         [HttpGet("byLocation/{searchParam}/{id}")]
-        public async Task<List<ContactDto>> GetContactListByLocation(string searchParam, uint id, [FromBody]PaginationDto paginationDto)
+        public async Task<IActionResult> GetContactListByLocation(string searchParam, long id, [FromBody]PaginationDto pagination)
+        {   
+            if (ModelState.IsValid)
+            {   
+                return buildResponse(await _service.GetContactsByLocation(searchParam, id, pagination));
+            }
+            return null;
+        }
+
+        private IActionResult buildResponse<T>(ClientResponse<T> result)
         {
-            return await _service.GetContactsByLocation(searchParam, id, paginationDto);
+            switch (result.Status)
+            {
+                case HttpStatusCode.OK:
+                    return Ok(result.Response);
+                case HttpStatusCode.NoContent:
+                    return StatusCode(204, result.Message);
+                case HttpStatusCode.NotFound:
+                    return NotFound(result.Message);
+                case HttpStatusCode.InternalServerError:
+                    return StatusCode(500,result.Message);
+                case HttpStatusCode.BadRequest:                   
+                    return BadRequest(result.Message);
+                default:
+                    return StatusCode(500);
+            }
         }
     }
 }
