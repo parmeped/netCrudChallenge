@@ -1,4 +1,4 @@
-﻿using Contracts.Contact;
+﻿using Contracts.Services;
 using Contracts.Dto.Requests;
 using Contracts.Dto.Responses;
 using System;
@@ -84,8 +84,9 @@ namespace Services.Contact
             }
         }
 
-        public async Task<bool> DeleteContactById(long ID)
-        {            
+        public async Task<ClientResponse<bool>> DeleteContactById(long ID)
+        {
+            var response = new ClientResponse<bool>();
             try
             {
                 var contact = await _repository.Contacts.FirstOrDefaultAsync(x => x.ID == ID && x.Active);                
@@ -106,13 +107,20 @@ namespace Services.Contact
                         }
                     }
                     await _repository.SaveChangesAsync();
-                    return true;
-                }                
-                return false;                
+                    response.Response = true;
+                    response.Message = "Contact deleted successfully";
+                    response.Status = System.Net.HttpStatusCode.OK;
+                    return response;
+                }
+                response.Message = E.ErrContactNotFound;
+                response.Status = System.Net.HttpStatusCode.NoContent;
+                return response;
             }
             catch (Exception ex)
-            {                
-                return false;
+            {
+                response.Message = ex.Message;
+                response.Status = System.Net.HttpStatusCode.InternalServerError;
+                return response;
             }
         }
 
@@ -122,15 +130,39 @@ namespace Services.Contact
             var response = new ClientResponse<ContactDto>();
             try
             {   
+                // Validate exists
                 var contact = await _repository.Contacts.FirstOrDefaultAsync(x => x.ID == ID && x.Active);       
                 if (contact != null)
                 {
-                    var company = await _repository.Companies.FirstOrDefaultAsync(x => x.ID == contact.CompanyID && x.Active);                
-                    var city = await _repository.Cities.FirstOrDefaultAsync(x => x.ID == contact.CityID && x.Active);                
-                    var state = await _repository.States.FirstOrDefaultAsync(x => x.ID == city.StateID && x.Active);
-                    var phones = await _repository.Phones.Where(p => p.ContactID == ID && p.Active).ToListAsync();
-                    var result = _mapper.Map<ContactDto>(contact);
                     
+                    var search = await (from co in _repository.Contacts
+                                        join ci in _repository.Cities
+                                        on co.CityID equals ci.ID
+                                        join com in _repository.Companies
+                                        on co.CompanyID equals com.ID
+                                        join sta in _repository.States
+                                        on ci.StateID equals sta.ID                                        
+                                        where co.ID == contact.ID && ci.Active && com.Active && sta.Active
+                                        select new 
+                                        {
+                                            ID = (uint)co.ID,                                            
+                                            CityID = (uint)co.CityID,
+                                            CityName = ci.Name,                                            
+                                            StateID = (uint)sta.ID,
+                                            StateName = sta.Name,                                            
+                                            CompanyName = com.Name,                                            
+                                        }).FirstOrDefaultAsync();
+                    
+                    var phones = await _repository.Phones.Where(p => p.ContactID == ID && p.Active).ToListAsync();                                        
+
+                    // Map
+                    var result = _mapper.Map<ContactDto>(contact);
+                    result.CityName = search.CityName;
+                    result.CompanyName = search.CompanyName;                
+                    result.StateID = search.StateID;
+                    result.StateName = search.StateName;
+                    
+                    // Return
                     response.Response = result;
                     response.Status = System.Net.HttpStatusCode.OK;
                     return response;
@@ -249,12 +281,16 @@ namespace Services.Contact
             {
                 if (updateDto.BirthDate > DateTime.Now)
                 {
-                    return null;
+                    response.Message = E.ErrHigherBirthDate;
+                    response.Status = System.Net.HttpStatusCode.BadRequest;
+                    return response;
                 }
                 var contact = await _repository.Contacts.FirstOrDefaultAsync(x => x.ID == ID && x.Active);
                 if (contact == null)
                 {
-                    return null;                                                        
+                    response.Message = E.ErrContactNotFound;
+                    response.Status = System.Net.HttpStatusCode.NoContent;
+                    return response;
                 }
                 if (await validateCityAndCompany(contact.CityID, contact.CompanyID))
                 {
@@ -265,7 +301,9 @@ namespace Services.Contact
                     await _repository.SaveChangesAsync();
                     return await GetContactById(contact.ID);
                 }
-                return null;
+                response.Message = E.ErrGeneric;
+                response.Status = System.Net.HttpStatusCode.InternalServerError;
+                return response;
             }
             catch (Exception ex)
             {
@@ -279,14 +317,26 @@ namespace Services.Contact
 
         private async Task<List<Mo.Contact>> getContactsByLocationParam(string param, long paramID)
         {            
-            if (param.ToUpper().Contains("COMPANY"))
+            if (param.ToUpper().Contains("STATE"))
             {
-                var location = await _repository.Companies.FirstOrDefaultAsync(x => x.ID == paramID);
+                var location = await _repository.States.FirstOrDefaultAsync(x => x.ID == paramID);
                 if (location != null)
                 {
-                    return await _repository.Contacts
-                                 .Where(c => c.CompanyID == paramID)
-                                 .ToListAsync();
+                    return await (from co in _repository.Contacts
+                                    join ci in _repository.Cities
+                                    on co.CityID  equals ci.ID
+                                    where ci.StateID == paramID
+                                    select new Mo.Contact
+                                    {
+                                        ID = (uint)co.ID,
+                                        Name = co.Name,                                              
+                                        Email = co.Email,
+                                        BirthDate = co.BirthDate,
+                                        CityID = ci.ID,
+                                        ProfileImage = co.ProfileImage,
+                                        StreetName = co.StreetName,
+                                        StreetNumber = co.StreetNumber
+                                    }).ToListAsync();                    
                 }
             }
             if (param.ToUpper().Contains("CITY"))

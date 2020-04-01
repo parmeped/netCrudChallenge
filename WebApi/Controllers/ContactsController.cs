@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Contracts.Dto.Responses;
 using Contracts.Dto.Requests;
-using Contracts.Contact;
+using Contracts.Services;
 using System.Net;
 
 
@@ -59,11 +54,11 @@ namespace WebApi.Controllers
 
         // DELETE: api/Contacts/:id
         [HttpDelete("{id}")]
-        public async Task<ActionResult<bool>> DeleteContact(long id)
+        public async Task<IActionResult> DeleteContact(long id)
         {
             if (ModelState.IsValid)
             {
-                return await _service.DeleteContactById(id);
+                return buildResponse(await _service.DeleteContactById(id));
             }
             return null;
         }

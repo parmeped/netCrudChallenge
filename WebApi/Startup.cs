@@ -1,5 +1,5 @@
 using AutoMapper;
-using Contracts.Contact;
+using Contracts.Services;
 using Contracts.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

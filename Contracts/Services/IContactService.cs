@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Contracts.Dto.Responses;
 using Contracts.Dto.Requests;
 using System.Threading.Tasks;
 
-namespace Contracts.Contact
+namespace Contracts.Services
 {
     public interface IContactService
     {
@@ -12,7 +11,7 @@ namespace Contracts.Contact
 
         Task<ClientResponse<ContactDto>> GetContactById(long ID);
 
-        Task<bool> DeleteContactById(long ID);
+        Task<ClientResponse<bool>> DeleteContactById(long ID);
 
         public Task<ClientResponse<ContactDto>> UpdateContact(long ID,  UpdateContactDto updateDto);
 
