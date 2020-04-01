@@ -106,7 +106,7 @@ Returns a 200 ok if updated, and the new data is shown.
 
 A 204 if not found or 400 upon bad request.
 
-# List by Location (Company or City)
+# List by Location (State or City)
 GET https://localhost:44345/api/v1/contacts/byLocation/:searchParam/:locationId
 
 JSON: 
