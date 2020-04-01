@@ -129,7 +129,7 @@ JSON:
 
 Returns a 200 ok with the paginated data when found.
 
-# By Phone
+# List By Phone
 GET https://localhost:44345/api/v1/contacts/byPhone/
 
 JSON: 
