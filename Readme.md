@@ -16,7 +16,7 @@ Docker
 3) Execute command on Package Manager Console 
  --> update-database
 
-4) Change to launch from IIS Express and start
+4) For quick local testing, change to launch from IIS Express and start
 
 This starts a server on https://localhost:44345/
 
