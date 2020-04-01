@@ -101,7 +101,7 @@ JSON:
     ]
 }
 
-A phone can be updated, removed or added as desired. When removed, a soft delete is performed.
+A phone can be updated, removed or added as desired. When removed, a soft delete is performed. To add a new one, don't specify the phone id. 
 Returns a 200 ok if updated, and the new data is shown.
 
 A 204 if not found or 400 upon bad request.
